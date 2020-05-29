@@ -1,8 +1,8 @@
 #!/bin/bash
 
 prefix_path=$1
-nghttp2_url="https://github.com/nghttp2/nghttp2/releases/download/v1.39.2/nghttp2-1.39.2.tar.gz"
-libcurl_url="https://github.com/curl/curl/releases/download/curl-7_66_0/curl-7.66.0.tar.gz"
+nghttp2_url="https://github.com/nghttp2/nghttp2/releases/download/v1.38.0/nghttp2-1.38.0.tar.gz"
+libcurl_url="https://github.com/curl/curl/releases/download/curl-7_70_0/curl-7.70.0.tar.gz"
 
 if [ -z "$prefix_path" ]
   then
@@ -47,7 +47,7 @@ tar -zxvf curl-*.gz
 rm -rf  curl-*.gz
 
 cd curl-*
-./configure --prefix=$libcurl_prefix_path --with-nghttp2=$nghttp2_prefix_path --disable-pthreads --disable-threaded-resolver --enable-debug --enable-curldebug --disable-silent-rules
+./configure --prefix=$libcurl_prefix_path --with-nghttp2=$nghttp2_prefix_path --disable-threaded-resolver --enable-debug --disable-curldebug --disable-silent-rules
 sleep 3
 make
 make install
